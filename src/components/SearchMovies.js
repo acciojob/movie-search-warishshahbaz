@@ -24,7 +24,7 @@ const MovieSearch = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
       setSearchResults([]);
-      setErrorMessage("Something went wrong. Please try again later.");
+      setErrorMessage("Invalid movie name. Please try again.");
     }
   };
 
