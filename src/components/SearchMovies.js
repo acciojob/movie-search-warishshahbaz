@@ -59,25 +59,28 @@ const MovieSearch = () => {
 
   return (
     <div>
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search for a movie..."
-      />
-      <button onClick={handleSearch}>Search</button>
+      <form>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search for a movie..."
+        />
+        <button onClick={handleSearch}>Search</button>
+      </form>
+
       {errorMessage && <p className="error">{errorMessage}</p>}
-      <div className="search-results">
+      <ul className="search-results">
         {searchResults.map((movie) => (
-          <div key={movie.imdbID} className="movie">
+          <li key={movie.imdbID} className="movie">
             <img src={movie.Poster} alt={movie.Title} />
             <div>
               <h3>{movie.Title}</h3>
               <p>{movie.Year}</p>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
