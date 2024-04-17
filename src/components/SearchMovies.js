@@ -71,14 +71,14 @@ const MovieSearch = () => {
 
       {errorMessage && <p className="error">{errorMessage}</p>}
       <ul className="search-results">
-        {searchResults.map((movie) => (
-          <li key={movie.imdbID} className="movie">
+        {searchResults?.map((movie) => (
+          <lo key={movie.imdbID} className="movie">
             <img src={movie.Poster} alt={movie.Title} />
             <div>
               <h3>{movie.Title}</h3>
               <p>{movie.Year}</p>
             </div>
-          </li>
+          </lo>
         ))}
       </ul>
     </div>
