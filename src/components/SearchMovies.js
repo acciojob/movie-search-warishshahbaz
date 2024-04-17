@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "regenerator-runtime/runtime";
 
 const MovieSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,7 +12,8 @@ const MovieSearch = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`${API_URL}&s=${searchQuery}`);
+      let response = await fetch(`${API_URL}&s=${searchQuery}`);
+      response = response.json();
       if (response.data.Response === "True") {
         setSearchResults(response.data.Search);
         setErrorMessage("");
