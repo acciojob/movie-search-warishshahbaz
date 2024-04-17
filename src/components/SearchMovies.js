@@ -59,6 +59,7 @@ const MovieSearch = () => {
 
   return (
     <div>
+      <h2>Search Movies</h2>
       <form>
         <input
           type="text"
@@ -72,13 +73,13 @@ const MovieSearch = () => {
       {errorMessage && <p className="error">{errorMessage}</p>}
       <ul className="search-results">
         {searchResults?.map((movie) => (
-          <lo key={movie.imdbID} className="movie">
+          <li key={movie.imdbID} className="movie">
             <img src={movie.Poster} alt={movie.Title} />
             <div>
               <h3>{movie.Title}</h3>
               <p>{movie.Year}</p>
             </div>
-          </lo>
+          </li>
         ))}
       </ul>
     </div>
