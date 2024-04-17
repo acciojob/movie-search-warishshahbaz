@@ -8,7 +8,7 @@ const MovieSearch = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const API_KEY = "7e2d4ba2";
-  const API_URL = `http://www.omdbapi.com/?apikey=7e2d4ba2`;
+  const API_URL = `http://www.omdbapi.com/?apikey=7e2d4ba2&`;
 
   const fetchData = async () => {
     try {
