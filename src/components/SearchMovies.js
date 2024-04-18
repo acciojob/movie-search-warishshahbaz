@@ -52,12 +52,6 @@ const MovieSearch = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    if (searchQuery) {
-      handleSearch(searchQuery);
-    }
-  }, [searchQuery]);
-
   return (
     <div>
       <h2>Search Movies</h2>
@@ -76,11 +70,10 @@ const MovieSearch = () => {
         {searchResults?.map((movie) => {
           return (
             <li key={movie.imdbID} className="movie">
+              <h3>
+                {movie.Title} ({movie.Year})
+              </h3>
               <img src={movie.Poster} alt={movie.Title} />
-              <div>
-                <h3>{movie.Title}</h3>
-                <p>{movie.Year}</p>
-              </div>
             </li>
           );
         })}
