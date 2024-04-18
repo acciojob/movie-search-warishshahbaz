@@ -9,6 +9,7 @@ const MovieSearch = () => {
 
   const API_KEY = "7e2d4ba2";
   const API_URL = `http://www.omdbapi.com/?apikey=7e2d4ba2&`;
+  //http://www.omdbapi.com/?apikey=7e2d4ba2&s=batman
 
   const fetchData = async () => {
     try {
@@ -19,7 +20,7 @@ const MovieSearch = () => {
         setErrorMessage("");
       } else {
         setSearchResults([]);
-        setErrorMessage("Invalid movie name. Please try again.");
+        setErrorMessage("");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -51,11 +52,11 @@ const MovieSearch = () => {
     fetchData();
   }, []);
 
-  //   useEffect(() => {
-  //     if (searchQuery) {
-  //       handleSearch(searchQuery);
-  //     }
-  //   }, [searchQuery]);
+  useEffect(() => {
+    if (searchQuery) {
+      handleSearch(searchQuery);
+    }
+  }, [searchQuery]);
 
   return (
     <div>
@@ -72,15 +73,17 @@ const MovieSearch = () => {
 
       {errorMessage && <p className="error">{errorMessage}</p>}
       <ul className="search-results">
-        {searchResults?.map((movie) => (
-          <li key={movie.imdbID} className="movie">
-            <img src={movie.Poster} alt={movie.Title} />
-            <div>
-              <h3>{movie.Title}</h3>
-              <p>{movie.Year}</p>
-            </div>
-          </li>
-        ))}
+        {searchResults?.map((movie) => {
+          return (
+            <li key={movie.imdbID} className="movie">
+              <img src={movie.Poster} alt={movie.Title} />
+              <div>
+                <h3>{movie.Title}</h3>
+                <p>{movie.Year}</p>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
