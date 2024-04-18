@@ -1,11 +1,11 @@
 import React from "react";
 import "./../styles/App.css";
-import MovieSearch from "./SearchMovies";
+import SearchBar from "./SearchBar";
 
 const App = () => {
   return (
     <div>
-      <MovieSearch />
+      <SearchBar />
     </div>
   );
 };
