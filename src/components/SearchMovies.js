@@ -85,6 +85,9 @@ const MovieSearch = () => {
           );
         })}
       </ul>
+      <ul>
+        <li>Home</li>
+      </ul>
     </div>
   );
 };
